@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { EditarPage } from "../editar/editar";
-import { ConsultarPage } from "../consultar/consultar";
+import { TimesPage } from "../times/times";
+import { PlacaresPage } from "../placares/placares";
 
 @Component({
   selector: 'page-home',
@@ -11,11 +11,11 @@ export class HomePage {
 
   constructor(public navCtrl: NavController) {}
 
-  public editarMenu() {
-    this.navCtrl.push(EditarPage);
+  public openTimes() {
+    this.navCtrl.push(TimesPage);
   }
 
-  public consultarMenu() {
-    this.navCtrl.push(ConsultarPage);
+  public openPlacares() {
+    this.navCtrl.push(PlacaresPage);
   }
 }
