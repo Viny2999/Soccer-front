@@ -8,14 +8,27 @@ import { Time } from '../../time';
   templateUrl: 'times.html'
 })
 export class TimesPage {
-  time : Time[];
+  private times : Time[] = [];
   
   constructor(public navCtrl: NavController, public navParams: NavParams, @Inject(HttpService) public httpService: HttpService) {
   }
 
   ionViewDidLoad() {
-    this.httpService.getAllTimes('/time/all').then(time => this.time = time);
-    console.log(this.time[0]);
+    this.httpService.getAllTimes('/time/all')
+    .then(time => {this.times = time})
+    .catch((e) => { this.times = [];});
+  }
+
+  public adicionarTime() {
+    console.info('Adicionar Time!');
+  }
+
+  public editarTime() {
+    console.info('Editar time!');
+  }
+
+  public getTimes(): Time[] {
+    return this.times;
   }
 
 }

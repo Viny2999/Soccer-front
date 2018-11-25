@@ -2,7 +2,7 @@
   <ion-navbar>
     <div class="row">
       <ion-title class="col-xs-7">Times</ion-title>
-      <button ion-button clear (click)="editarTimes()" class="col-xs-5" >
+      <button ion-button clear (click)="adicionarTime()" class="col-xs-5">
         <ion-icon name="add-circle" style="font-size:30px;"></ion-icon>
       </button>
     </div>
@@ -10,6 +10,12 @@
 </ion-header>
 
 <ion-content padding>
-  
-  
+  <ion-list>
+    <ion-item *ngFor="let time of getTimes()">
+      {{time.nome}}
+      <button ion-button item-end (click)="editarTime()">
+        <ion-icon name="brush"></ion-icon>
+      </button>
+    </ion-item>
+  </ion-list>
 </ion-content>

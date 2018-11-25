@@ -11,11 +11,11 @@ export class HomePage {
 
   constructor(public navCtrl: NavController) {}
 
-  public openTimes() {
+  public consultarTimes() {
     this.navCtrl.push(TimesPage);
   }
 
-  public openPlacares() {
+  public consultarPlacares() {
     this.navCtrl.push(PlacaresPage);
   }
 }

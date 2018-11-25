@@ -11,7 +11,15 @@ export class PlacaresPage {
   }
 
   ionViewDidLoad() {
-    
+
+  }
+
+  public consultarPlacares() {
+    console.info('Consultar Placares!');
+  }
+
+  public consultarTimes() {
+    console.info('Consultar Times!');
   }
 
 }

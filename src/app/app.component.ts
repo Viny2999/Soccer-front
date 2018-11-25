@@ -16,6 +16,9 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
+    })
+    .catch((e) => {
+      console.error('Platform not started:  ', e);
     });
   }
 }
