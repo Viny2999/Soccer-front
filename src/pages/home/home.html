@@ -1,14 +1,12 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
+  <ion-navbar class="centraliza">
+    <ion-title>Soccer Score</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content padding class="centraliza-botoes">
+  
+  <button ion-button large round (click)="editarMenu()" class="espacamento-botoes">Editar</button>
+  <button ion-button large round (click)="consultarMenu()" class="espacamento-botoes">Consultar</button>
+
 </ion-content>
