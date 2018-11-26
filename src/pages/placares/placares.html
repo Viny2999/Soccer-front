@@ -1,12 +1,18 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>Placares</ion-title>
+  <ion-navbar color="secondary">
+    <div class="row">
+        <ion-title class="col-xs-7">Placares</ion-title>
+        <button ion-button clear (click)="adicionarPlacar()" color="dark" class="col-xs-5">
+          <ion-icon name="add-circle" style="font-size:30px;"></ion-icon>
+        </button>
+      </div>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding class="centraliza-botoes">
-  
-  <button ion-button large round (click)="consultarTimes()" class="espacamento-botoes">Consultar Times</button>
-  <button ion-button large round (click)="consultarPlacares()" class="espacamento-botoes">Consultar Placares</button>
-
+<ion-content padding>
+  <ion-list>
+    <ion-item *ngFor="let placar of getPlacares()" (press)="editarPlacar(placar)">
+      {{placar.timeA}}  {{placar.placarA}}   X   {{placar.placarB}}  {{placar.timeB}}
+    </ion-item>
+  </ion-list>
 </ion-content>

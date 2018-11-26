@@ -1,7 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { HttpService } from "../../services/http.service";
-import { AlertController } from 'ionic-angular';
+import { AlertController, LoadingController, Loading } from 'ionic-angular';
 import { Time } from '../../time';
 
 @Component({
@@ -11,11 +11,19 @@ import { Time } from '../../time';
 export class TimesPage {
   private times : Time[] = [];
   
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alert: AlertController, @Inject(HttpService) public httpService: HttpService) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alert: AlertController, 
+    @Inject(HttpService) public httpService: HttpService, public loadingController: LoadingController) {}
 
   ionViewDidLoad() {
+    const loader: Loading = this.loadingController.create({
+      content: "Aguarde...",
+    });
+    loader.present();
     this.httpService.getAllTimes('/time/all')
-    .then(time => {this.times = time})
+    .then(time => {
+      this.times = time;
+      loader.dismiss();
+    })
     .catch((e) => { this.times = [];});
   }
 
@@ -35,7 +43,7 @@ export class TimesPage {
 
   public showAlert(time, bool) {
     const alert = this.alert.create({
-      title: 'Você deseja',
+      title: 'Você deseja...',
       buttons: [
         { 
           text: 'Editar',
@@ -47,7 +55,7 @@ export class TimesPage {
         { 
           text: 'Excluir',
           handler: () => {
-            this.httpService.deleteTime('/time/?nome=' + time.nome)
+            this.httpService.deleteTime('/time/' + time._id)
             .then(res => {
               this.ionViewDidLoad()
             })
@@ -62,7 +70,7 @@ export class TimesPage {
   public  showPrompt(time, bool) {
     const prompt = this.alert.create({
       title: 'Editar Time',
-      message: "Digite o novo nome do time",
+      message: "Digite o nome do time",
       inputs: [
         {
           name: 'nome',
@@ -76,18 +84,27 @@ export class TimesPage {
         {
           text: 'Salvar',
           handler: data => {
-            if (bool == false) {
-              this.httpService.postTime('/time', data.nome)
-              .then(res => {
-                this.ionViewDidLoad()
+            if (data.nome == '') {
+              const alert = this.alert.create({
+                title: 'Ops!',
+                subTitle: 'Você não pode criar um time vazio!',
+                buttons: ['OK']
               })
-              .catch((e) => console.log(e));
+              alert.present();
             } else {
-              this.httpService.putTime('/time/' + time._id, data.nome)
-              .then(res => {
-                this.ionViewDidLoad()
-              })
-              .catch((e) => console.log(e));
+              if (bool == false) {
+                this.httpService.postTime('/time', data.nome)
+                .then(res => {
+                  this.ionViewDidLoad()
+                })
+                .catch((e) => console.log(e));
+              } else {
+                this.httpService.putTime('/time/' + time._id, data.nome)
+                .then(res => {
+                  this.ionViewDidLoad()
+                })
+                .catch((e) => console.log(e));
+              }
             }
           }
         }

@@ -10,6 +10,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { TimesPage } from '../pages/times/times';
 import { PlacaresPage } from '../pages/placares/placares';
+import { CriaPlacarPage } from '../pages/cria-placar/cria-placar';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { PlacaresPage } from '../pages/placares/placares';
     HomePage,
     TimesPage,
     PlacaresPage,
+    CriaPlacarPage,
   ],
   imports: [
     BrowserModule,
@@ -29,6 +31,7 @@ import { PlacaresPage } from '../pages/placares/placares';
     HomePage,
     TimesPage,
     PlacaresPage,
+    CriaPlacarPage,
   ],
   providers: [
     StatusBar,

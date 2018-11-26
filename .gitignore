@@ -19,6 +19,7 @@ package-lock.json
 .sass-cache/
 .tmp/
 .versions/
+.gradle/
 coverage/
 dist/
 node_modules/
