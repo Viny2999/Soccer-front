@@ -1,9 +1,6 @@
 # Soccer-front
 
-Projeto feito com Ionic sobre Times de Futebol
+Project develop in Ionic for create soccer clubs and register their scores.
 
-Como usar:
-
-Abra um terminal
-npm i
-npm start
+How to use:
+`npm i` and `npm start`
