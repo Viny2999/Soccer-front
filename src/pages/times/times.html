@@ -11,11 +11,8 @@
 
 <ion-content padding>
   <ion-list>
-    <ion-item *ngFor="let time of getTimes()">
-      {{time.nome}}
-      <button ion-button item-end (click)="editarTime()">
-        <ion-icon name="brush"></ion-icon>
-      </button>
+    <ion-item *ngFor="let time of getTimes()" (press)="editarTime(time)">
+      {{time.nome}} 
     </ion-item>
   </ion-list>
 </ion-content>
