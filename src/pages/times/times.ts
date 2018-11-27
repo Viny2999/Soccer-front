@@ -33,8 +33,6 @@ export class TimesPage {
 
   public editarTime(time) {
     this.showAlert(time,true);
-    
-    
   }
 
   public getTimes(): Time[] {
@@ -84,7 +82,7 @@ export class TimesPage {
         {
           text: 'Salvar',
           handler: data => {
-            if (data.nome == '') {
+            if (data.nome.trim() == '') {
               const alert = this.alert.create({
                 title: 'Ops!',
                 subTitle: 'Você não pode criar um time vazio!',

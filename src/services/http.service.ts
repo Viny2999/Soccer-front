@@ -44,4 +44,16 @@ export class HttpService {
     .toPromise().then(response => response.json())
     .catch((error) => console.log(error))
   }
+
+  public putPlacar(endpoint:string, timeA:StringConstructor, timeB:StringConstructor, placarA:StringConstructor, placarB:StringConstructor): Promise<any> {
+    return this.http.put(config.heroku + endpoint, {timeA: timeA, timeB: timeB, placarA: placarA, placarB: placarB}, {headers: this.headers})
+    .toPromise().then(response => response.json())
+    .catch((error) => console.log(error))
+  }
+
+  public deletePlacar(endpoint:string): Promise<any> {
+    return this.http.delete(config.heroku + endpoint)
+    .toPromise().then(response => response.json())
+    .catch((error) => console.log(error))
+  }
 } 
