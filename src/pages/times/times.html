@@ -11,7 +11,7 @@
 
 <ion-content padding>
   <ion-list>
-    <ion-item *ngFor="let time of getTimes()" (press)="editarTime(time)">
+    <ion-item *ngFor="let time of getTimes()" (click)="editarTime(time)">
       {{time.nome}} 
     </ion-item>
   </ion-list>

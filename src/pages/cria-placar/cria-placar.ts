@@ -12,7 +12,11 @@ export class CriaPlacarPage {
   private times : Time[] = [];
 
   private id: String;
-  private placar: String;
+  private placarId: String;
+  private timeA: String = '';
+  private timeB: String = '';
+  private placarA: String = '';
+  private placarB: String = '';
 
   private resultado = {
     timeA: String,
@@ -25,7 +29,11 @@ export class CriaPlacarPage {
 
   ionViewDidLoad() {
     this.id = this.navParams.get('id');
-    this.placar = this.navParams.get('placar');
+    this.placarId = this.navParams.get('placarId');
+    this.timeA = this.navParams.get('timeA');
+    this.timeB = this.navParams.get('timeB');
+    this.placarA = this.navParams.get('placarA');
+    this.placarB = this.navParams.get('placarB');
 
     this.httpService.getAllTimes('/time/all')
     .then(time => {
@@ -62,14 +70,19 @@ export class CriaPlacarPage {
               alert.present();
         } else {
           if (this.id == '1') {
-            this.httpService.postPlacar('/placar', this.resultado.timeA, this.resultado.timeB, this.resultado.placarA, this.resultado.placarB)
+            const miniA = this.resultado.timeA.toString().substring(0,3);
+            const miniB = this.resultado.timeB.toString().substring(0,3);
+            this.httpService.postPlacar('/placar', this.resultado.timeA, this.resultado.timeB, miniA, miniB, this.resultado.placarA, this.resultado.placarB)
               .then(res => {
                 console.log(res);
                 this.navCtrl.pop();
               })
               .catch((e) => console.log(e));
           } else {
-            this.httpService.putPlacar('/placar/' + this.placar, this.resultado.timeA, this.resultado.timeB, this.resultado.placarA, this.resultado.placarB)
+            const miniA = this.resultado.timeA.toString().substring(0,3);
+            const miniB = this.resultado.timeB.toString().substring(0,3);
+            
+            this.httpService.putPlacar('/placar/' + this.placarId, this.resultado.timeA, this.resultado.timeB, miniA, miniB, this.resultado.placarA, this.resultado.placarB)
             .then(res => {
               console.log(res);
               this.navCtrl.pop();

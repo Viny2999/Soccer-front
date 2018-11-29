@@ -11,8 +11,24 @@
 
 <ion-content padding>
   <ion-list>
-    <ion-item *ngFor="let placar of getPlacares()" (press)="editarPlacar(placar)">
-      {{placar.timeA}}  {{placar.placarA}}   X   {{placar.placarB}}  {{placar.timeB}}
+    <ion-item *ngFor="let placar of getPlacares()" (click)="editarPlacar(placar)">
+      <div class="estilo-linha">
+        <div class="estilo-time">
+          {{placar.miniA}}
+        </div>
+        <div class="estilo-placar">
+          {{placar.placarA}}
+        </div>
+        <div>
+          <ion-icon name="close" class="estilo-versus"></ion-icon>
+        </div>
+        <div class="estilo-placar">
+          {{placar.placarB}}
+        </div>
+        <div class="estilo-time">
+          {{placar.miniB}}
+        </div>
+      </div>
     </ion-item>
   </ion-list>
 </ion-content>

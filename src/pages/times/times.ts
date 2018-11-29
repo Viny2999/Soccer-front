@@ -91,13 +91,16 @@ export class TimesPage {
               alert.present();
             } else {
               if (bool == false) {
-                this.httpService.postTime('/time', data.nome)
+                const nomeMini = data.nome.substring(0,3);
+                this.httpService.postTime('/time', data.nome, nomeMini)
                 .then(res => {
+                  console.log(res);
                   this.ionViewDidLoad()
                 })
                 .catch((e) => console.log(e));
               } else {
-                this.httpService.putTime('/time/' + time._id, data.nome)
+                const nomeMini = data.nome.substring(0,3);
+                this.httpService.putTime('/time/' + time._id, data.nome, nomeMini)
                 .then(res => {
                   this.ionViewDidLoad()
                 })

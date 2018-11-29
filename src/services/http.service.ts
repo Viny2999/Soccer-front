@@ -15,14 +15,14 @@ export class HttpService {
     .toPromise().then(response => response.json())
     .catch((error) => console.log(error))
   }
-  public postTime(endpoint:string, nome:string): Promise<any> {
-    return this.http.post(config.heroku + endpoint, {nome: nome}, {headers: this.headers})
+  public postTime(endpoint:string, nome:string, mini:string): Promise<any> {
+    return this.http.post(config.heroku + endpoint, {nome: nome, mini: mini}, {headers: this.headers})
     .toPromise().then(response => response.json())
     .catch((error) => console.log(error))
   }
 
-  public putTime(endpoint:string, nome:string): Promise<any> {
-    return this.http.put(config.heroku + endpoint, {nome: nome}, {headers: this.headers})
+  public putTime(endpoint:string, nome:string, mini:string): Promise<any> {
+    return this.http.put(config.heroku + endpoint, {nome: nome, mini: mini}, {headers: this.headers})
     .toPromise().then(response => response.json())
     .catch((error) => console.log(error))
   }
@@ -39,14 +39,14 @@ export class HttpService {
     .catch((error) => console.log(error))
   }
 
-  public postPlacar(endpoint:string, timeA:StringConstructor, timeB:StringConstructor, placarA:StringConstructor, placarB:StringConstructor): Promise<any> {
-    return this.http.post(config.heroku + endpoint, {timeA: timeA, timeB: timeB, placarA: placarA, placarB: placarB}, {headers: this.headers})
+  public postPlacar(endpoint:string, timeA:StringConstructor, timeB:StringConstructor, miniA:string , miniB:string, placarA:StringConstructor, placarB:StringConstructor): Promise<any> {
+    return this.http.post(config.heroku + endpoint, {timeA: timeA, timeB: timeB, miniA: miniA, miniB: miniB, placarA: placarA, placarB: placarB}, {headers: this.headers})
     .toPromise().then(response => response.json())
     .catch((error) => console.log(error))
   }
 
-  public putPlacar(endpoint:string, timeA:StringConstructor, timeB:StringConstructor, placarA:StringConstructor, placarB:StringConstructor): Promise<any> {
-    return this.http.put(config.heroku + endpoint, {timeA: timeA, timeB: timeB, placarA: placarA, placarB: placarB}, {headers: this.headers})
+  public putPlacar(endpoint:string, timeA:StringConstructor, timeB:StringConstructor, miniA:string , miniB:string, placarA:StringConstructor, placarB:StringConstructor): Promise<any> {
+    return this.http.put(config.heroku + endpoint, {timeA: timeA, timeB: timeB, miniA: miniA, miniB: miniB, placarA: placarA, placarB: placarB}, {headers: this.headers})
     .toPromise().then(response => response.json())
     .catch((error) => console.log(error))
   }

@@ -3,4 +3,3 @@ let config = {
   heroku: 'https://soccer-devmedia.herokuapp.com/api'
 }
 export { config };
-  

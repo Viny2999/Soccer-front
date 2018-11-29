@@ -31,20 +31,27 @@ export class PlacaresPage {
     this.navCtrl.push(CriaPlacarPage, {id: '1', placar: null});
   }
 
-  public editarPlacar(placar) {
+  public editarPlacar(res) {
     const alert = this.alert.create({
       title: 'Você deseja...',
       buttons: [
         { 
           text: 'Editar',
           handler: () => {
-            this.navCtrl.push(CriaPlacarPage, {id: '2', placar: placar._id});
+            this.navCtrl.push(CriaPlacarPage, {
+              id: '2', 
+              placarId: res._id, 
+              timeA: res.timeA,
+              timeB: res.timeB,
+              placarA: res.placarA,
+              placarB: res.placarB,
+            });
           }
         }, 
         { 
           text: 'Excluir',
           handler: () => {
-            this.httpService.deletePlacar('/placar/' + placar._id)
+            this.httpService.deletePlacar('/placar/' + res._id)
             .then(res => {
               this.ionViewDidEnter()
             })

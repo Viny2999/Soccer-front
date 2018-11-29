@@ -7,23 +7,23 @@
 <ion-content padding class="centraliza">
   <ion-item>
     <ion-label stacked>Time A</ion-label>
-    <ion-select [(ngModel)]="resultado.timeA">
+    <ion-select [(ngModel)]="resultado.timeA" placeholder="{{timeA}}">
       <ion-option value="{{time.nome}}" *ngFor="let time of getTimes()">{{time.nome}}</ion-option>
     </ion-select>
   </ion-item>
   <ion-item>
     <ion-label stacked>Placar do Time A</ion-label>
-    <ion-input type="number" [(ngModel)]="resultado.placarA"></ion-input>
+    <ion-input type="number" [(ngModel)]="resultado.placarA" placeholder={{placarA}}></ion-input>
   </ion-item>
   <ion-item>
     <ion-label stacked>Time B</ion-label>
-    <ion-select [(ngModel)]="resultado.timeB">
+    <ion-select [(ngModel)]="resultado.timeB" placeholder="{{timeB}}">
       <ion-option value="{{time.nome}}" *ngFor="let time of getTimes()">{{time.nome}}</ion-option>
     </ion-select>
   </ion-item>
   <ion-item>
     <ion-label stacked>Placar do Time B</ion-label>
-    <ion-input type="number" [(ngModel)]="resultado.placarB"></ion-input>
+    <ion-input type="number" [(ngModel)]="resultado.placarB" placeholder={{placarB}}></ion-input>
   </ion-item>
   <button ion-button large round (click)="criaPlacar()" color="dark" class="espacamento">Criar Placar</button>
 </ion-content>
