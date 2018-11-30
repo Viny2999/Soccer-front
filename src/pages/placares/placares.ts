@@ -19,7 +19,7 @@ export class PlacaresPage {
       content: "Aguarde...",
     });
     loader.present();
-    this.httpService.getAllPlacares('/placar/all')
+    this.httpService.getAllPlacares('/placar')
     .then(placar => {
       this.placares = placar;
       loader.dismiss();

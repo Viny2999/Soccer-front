@@ -19,7 +19,7 @@ export class TimesPage {
       content: "Aguarde...",
     });
     loader.present();
-    this.httpService.getAllTimes('/time/all')
+    this.httpService.getAllTimes('/time')
     .then(time => {
       this.times = time;
       loader.dismiss();

@@ -35,7 +35,7 @@ export class CriaPlacarPage {
     this.placarA = this.navParams.get('placarA');
     this.placarB = this.navParams.get('placarB');
 
-    this.httpService.getAllTimes('/time/all')
+    this.httpService.getAllTimes('/time')
     .then(time => {
       this.times = time;
     })
